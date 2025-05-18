@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-background text-gray-100 font-sans antialiased;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-100 to-gray-400;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at center, rgba(229, 57, 53, 0.15) 0%, transparent 70%);
+}
+
+.feature-card {
+  @apply relative overflow-hidden rounded-xl bg-background-50 p-6 transition-all duration-300;
+}
+
+.feature-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-primary-500/10 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.feature-card:hover::before {
+  @apply opacity-100;
+}
+
+.nav-link {
+  @apply text-gray-300 hover:text-white transition-colors duration-200;
+}
+
+.button-primary {
+  @apply bg-primary-500 hover:bg-primary-600 text-white font-medium px-6 py-2 rounded-lg transition-all duration-200 flex items-center justify-center;
+}
+
+.button-secondary {
+  @apply bg-background-50 hover:bg-background-100 text-gray-100 font-medium px-6 py-2 rounded-lg transition-all duration-200 flex items-center justify-center;
+}
+
+/* Animated background */
+.animated-gradient {
+  @apply absolute inset-0 opacity-30;
+  background: linear-gradient(
+    45deg,
+    rgba(229, 57, 53, 0.1) 0%,
+    transparent 20%,
+    transparent 80%,
+    rgba(229, 57, 53, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  animation: gradient-xy 15s ease infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-background-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-background-50;
+}
